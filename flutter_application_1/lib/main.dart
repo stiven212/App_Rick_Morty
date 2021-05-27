@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/src/pages/characters_page.dart';
 
 import 'src/routes/routes.dart';
 
@@ -10,6 +11,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Ricky And Morty App',
-        routes: getApplicationRoutes());
+        routes: getApplicationRoutes(),
+        onGenerateRoute: (RouteSettings settings) {
+          print('Ruta llamada ${settings.name}');
+
+          return MaterialPageRoute(
+              builder: (BuildContext context) => GeneralCharacters());
+        });
   }
 }
